@@ -9,3 +9,8 @@ This examples continuously demonstrates all payloads of SDI12 sensor including:
 
 Example "concurrent-sdi12-temperature-moisture-voltage" is suitable for using payloads and forward them to another platform.
 Example "concurrent-sdi12-temperature-moisture-voltage_2" is just for writing payloads on Terminal.
+
+---------------------------------------------------------------------------------------------------
+Notes:
+- Command “R” not supported in this model but C is concurrent and works
+- There is no salinity payloads in this sdi12 sensor
