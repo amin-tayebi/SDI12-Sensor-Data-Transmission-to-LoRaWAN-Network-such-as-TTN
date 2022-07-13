@@ -24,9 +24,9 @@
 SDI12 mySDI12(DATA_PIN);
 
 // keeps track of active addresses
-bool isActive[64] = {
-  0,
-};
+//bool isActive[64] = {
+//  0,
+//};
 
 // keeps track of the wait time for each active addresses
 uint8_t waitTime[64] = {
@@ -244,12 +244,13 @@ void setup() {
     delay(200);
   }
 
+ /*
   // Quickly Scan the Address Space
   Serial.println("Scanning all addresses, please wait...");
   Serial.println("Protocol Version, Sensor Address, Sensor Vendor, Sensor Model, "
                  "Sensor Version, Sensor ID");
 
-  for (byte i = 0; i < 62; i++) {
+ for (byte i = 0; i < 62; i++) {
     char addr = decToChar(i);
     if (checkActive(addr)) {
       numSensors++;
@@ -258,6 +259,7 @@ void setup() {
       Serial.println();
     }
   }
+  
   Serial.print("Total number of sensors found:  ");
   Serial.println(numSensors);
 
@@ -272,6 +274,7 @@ void setup() {
   Serial.println("Time Elapsed (s), Measurement 1, Measurement 2, ... etc.");
   Serial.println(
     "-------------------------------------------------------------------------------");
+*/
 }
 
 
