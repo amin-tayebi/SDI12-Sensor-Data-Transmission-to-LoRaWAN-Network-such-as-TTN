@@ -1,32 +1,5 @@
 /*******************************************************************************
  * Copyright (c) 2015 Thomas Telkamp and Matthijs Kooijman
- *
- * Permission is hereby granted, free of charge, to anyone
- * obtaining a copy of this document and accompanying files,
- * to do whatever they want with them without any restriction,
- * including, but not limited to, copying, modification and redistribution.
- * NO WARRANTY OF ANY KIND IS PROVIDED.
- *
- * This example sends a valid LoRaWAN packet with payload "Hello,
- * world!", using frequency and encryption settings matching those of
- * the The Things Network.
- *
- * This uses OTAA (Over-the-air activation), where where a DevEUI and
- * application key is configured, which are used in an over-the-air
- * activation procedure where a DevAddr and session keys are
- * assigned/generated for use with all further communication.
- *
- * Note: LoRaWAN per sub-band duty-cycle limitation is enforced (1% in
- * g1, 0.1% in g2), but not the TTN fair usage policy (which is probably
- * violated by this sketch when left running for longer)!
-
- * To use this sketch, first register your application and device with
- * the things network, to set or generate an AppEUI, DevEUI and AppKey.
- * Multiple devices can use the same AppEUI, but each device has its own
- * DevEUI and AppKey.
- *
- * Do not forget to define the radio type correctly in config.h.
- *
  *******************************************************************************/
 
 #include <lmic.h>
@@ -37,10 +10,14 @@
 // first. When copying an EUI from ttnctl output, this means to reverse
 // the bytes. For TTN issued EUIs the last bytes should be 0xD5, 0xB3,
 // 0x70.
+
+//-------------------------------------------LSB
 static const u1_t PROGMEM APPEUI[8]={ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 void os_getArtEui (u1_t* buf) { memcpy_P(buf, APPEUI, 8);}
 
+
 // This should also be in little endian format, see above.
+//-------------------------------------------LSB
 static const u1_t PROGMEM DEVEUI[8]={ 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8);}
 
@@ -48,6 +25,8 @@ void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8);}
 // number but a block of memory, endianness does not really apply). In
 // practice, a key taken from ttnctl can be copied as-is.
 // The key shown here is the semtech default key.
+
+//-------------------------------------------MSB
 static const u1_t PROGMEM APPKEY[16] = { 0x2B, 0x7E, 0x15, 0x16, 0x28, 0xAE, 0xD2, 0xA6, 0xAB, 0xF7, 0x15, 0x88, 0x09, 0xCF, 0x4F, 0x3C };
 void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16);}
 
