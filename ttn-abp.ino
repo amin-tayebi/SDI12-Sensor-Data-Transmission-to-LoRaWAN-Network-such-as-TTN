@@ -1,11 +1,5 @@
 /*******************************************************************************
  * Copyright (c) 2015 Thomas Telkamp and Matthijs Kooijman
- * 
- * Permission is hereby granted, free of charge, to anyone
- * obtaining a copy of this document and accompanying files,
- * to do whatever they want with them without any restriction,
- * including, but not limited to, copying, modification and redistribution.
- * NO WARRANTY OF ANY KIND IS PROVIDED.
  *
  * This example sends a valid LoRaWAN packet with payload "Hello,
  * world!", using frequency and encryption settings matching those of
@@ -36,11 +30,15 @@
 // LoRaWAN NwkSKey, network session key
 // This is the default Semtech key, which is used by the early prototype TTN
 // network.
+
+//-------------------------------------------MSB
 static const PROGMEM u1_t NWKSKEY[16] = { 0x19, 0x96, 0xA5, 0xC7, 0x76, 0x36, 0xEC, 0x61, 0xB2, 0xC2, 0x27, 0xE3, 0xB7, 0x72, 0xAB, 0x89 };
 
 // LoRaWAN AppSKey, application session key
 // This is the default Semtech key, which is used by the early prototype TTN
 // network.
+
+//-------------------------------------------MSB
 static const u1_t PROGMEM APPSKEY[16] = { 0x59, 0xDD, 0x30, 0xCE, 0xB5, 0x4E, 0xE9, 0xD3, 0xC4, 0x1D, 0xB7, 0x5F, 0x2A, 0x3F, 0x96, 0x32 };
 
 // LoRaWAN end-device address (DevAddr)
