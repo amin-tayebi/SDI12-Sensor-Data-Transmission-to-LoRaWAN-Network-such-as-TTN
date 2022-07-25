@@ -13,4 +13,4 @@ Example "concurrent-sdi12-temperature-moisture-voltage_2" is just for writing pa
 ---------------------------------------------------------------------------------------------------
 Notes:
 - Command “R” not supported in this model but C is concurrent and works
-- There is no salinity payloads in this sdi12 sensor
+- There is no salinity payloads in this sdi12 sensor (Sentek Drill Drop SDI-12 Series III Probe)
